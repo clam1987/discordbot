@@ -14,7 +14,7 @@ Object.keys(botCommands).map(key => {
 })
 
 // Bot to listen
-bot.on('ready', () => {
+bot.once('ready', () => {
     console.info(`Logged in as ${bot.user.tag}!`);
 });
 // Bot command to reply to messages
@@ -22,6 +22,7 @@ bot.on("message", msg => {
     // split content by white spaces
     const args = msg.content.split(/ +/);
     // assuming the first args in our array is the command
+    // using shift we take the first element and we remove it form the original array
     const command = args.shift().toLowerCase();
     console.info(`Called command: ${command}`);
 
